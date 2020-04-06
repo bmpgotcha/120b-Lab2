@@ -32,6 +32,9 @@ int main(void) {
 	    tmpA >> 1;
 	}
 	tmpC = cntavail;
+	if(tmpA == 0x0F) {
+	    tmpC = tmpC + 0x80;
+	}
 	PORTC = tmpC;
     }
     return 1;
