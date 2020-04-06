@@ -17,10 +17,12 @@ int main(void) {
     DDRA = 0x00; PORTA = 0xFF;
     DDRB = 0xFF; PORTB = 0x00;
     /* Insert your solution below */
-    unsigned char temp_input = 0x00;
+    unsigned char tmpB = 0x00;
+    unsigned char tmpA = 0x00;
     while (1) {
-	temp_input = PINA;
-	PORTB = temp_input;
+	tmpA = PINA & 0x03;
+	tmpB = (tmpA ^ 0x02) && (tmpA & 0x01);
+	PORTB = tmpB;
     }
     return 1;
 }
