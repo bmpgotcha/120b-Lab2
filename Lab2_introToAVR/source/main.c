@@ -15,27 +15,19 @@
 int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF;
-    DDRB = 0xFF; PORTB = 0x00;
-    DDRC = 0xFF; PORTC = 0x00;
+    DDRB = 0x00; PORTB = 0xFF;
+    DDRC = 0x00; PORTC = 0xFF;
+    DDRD = 0xFF; PORTD = 0x00;
     /* Insert your solution below */
     unsigned char tmpC = 0x00;
     unsigned char tmpA = 0x00;
+    unsigned char tmpB = 0x00;
+    unsigned char tmpD = 0x00;
     unsigned char cntavail;
     unsigned char i;
     while (1) {
-	tmpA = PINA & 0x0F;
-	cntavail = 0;
-	for(i = 0; i < 4; ++i) {
-	    if((tmpA & 0x01)) {
-		cntavail++;
-	    }
-	    tmpA >> 1;
-	}
-	tmpC = cntavail;
-	if(tmpA == 0x0F) {
-	    tmpC = tmpC + 0x80;
-	}
-	PORTC = tmpC;
+
+	PORTD = tmpD;
     }
     return 1;
 }
